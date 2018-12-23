@@ -5,7 +5,8 @@
  */
 package FormTugasAkhir;
 
-import static FormTugasAkhir.Tri.t;
+//import static FormTugasAkhir.Tri.t;
+import Koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,6 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import koneksi.koneksi;
 
 /**
  *
@@ -28,6 +28,7 @@ public class Transaksi extends javax.swing.JFrame {
     private DefaultTableModel tabmode;
     static ArrayList<String> arlist = new ArrayList<>();
     static String output;
+    public static Tree t;
 
     public Transaksi() {
         initComponents();
@@ -38,7 +39,7 @@ public class Transaksi extends javax.swing.JFrame {
     }
 
     protected void aktif() {
-        txt_id.setEnabled(true);
+//        txt_id.setEnabled(true);
         txt_nama.setEnabled(true);
         invoicedate.setEnabled(true);
         txt_ket.setEnabled(true);
@@ -58,13 +59,13 @@ public class Transaksi extends javax.swing.JFrame {
         try {
             String sql = "SELECT MAX(RIGHT(ID_Pem,3)) AS NO FROM transaksi";
             PreparedStatement stat = conn.prepareStatement(sql);
-            ResultSet rsjual = stat.executeQuery(sql);
-            while (rsjual.next()) {
-                if (rsjual.first() == false) {
+            ResultSet rsid = stat.executeQuery(sql);
+            while (rsid.next()) {
+                if (rsid.first() == false) {
                     txt_id.setText("TRK-001");
                 } else {
-                    rsjual.last();
-                    int auto_id = rsjual.getInt(1) + 1;
+                    rsid.last();
+                    int auto_id = rsid.getInt(1) + 1;
                     String no = String.valueOf(auto_id);
                     int trk = no.length();
                     //MENGATUR jumlah 0
@@ -75,7 +76,7 @@ public class Transaksi extends javax.swing.JFrame {
                     txt_id.setEnabled(false);
                 }
             }
-            rsjual.close();
+            rsid.close();
             stat.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR: \n" + e.toString(), "Kesalahan", JOptionPane.WARNING_MESSAGE);

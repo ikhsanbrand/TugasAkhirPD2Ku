@@ -5,6 +5,7 @@
  */
 package FormTugasAkhir;
 
+import Koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,6 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ButtonGroup;
-import koneksi.koneksi;
 
 /**
  *
@@ -59,13 +59,13 @@ public class Pasien extends javax.swing.JFrame {
         try {
             String sql = "SELECT MAX(RIGHT(ID_Reg,3)) AS NO FROM pasien";
             PreparedStatement stat = conn.prepareStatement(sql);
-            ResultSet rsjual = stat.executeQuery(sql);
-            while (rsjual.next()) {
-                if (rsjual.first() == false) {
+            ResultSet rsid = stat.executeQuery(sql);
+            while (rsid.next()) {
+                if (rsid.first() == false) {
                     txtid.setText("REG-001");
                 } else {
-                    rsjual.last();
-                    int auto_id = rsjual.getInt(1) + 1;
+                    rsid.last();
+                    int auto_id = rsid.getInt(1) + 1;
                     String no = String.valueOf(auto_id);
                     int reg = no.length();
                     //MENGATUR jumlah 0
@@ -76,7 +76,7 @@ public class Pasien extends javax.swing.JFrame {
                     txtid.setEnabled(false);
                 }
             }
-            rsjual.close();
+            rsid.close();
             stat.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR: \n" + e.toString(), "Kesalahan", JOptionPane.WARNING_MESSAGE);
@@ -84,7 +84,7 @@ public class Pasien extends javax.swing.JFrame {
     }
 
     protected void aktif() {
-        txtid.setEnabled(true);
+//        txtid.setEnabled(true);
         txtNama.setEnabled(true);
         txtalamat.setEnabled(true);
         radioL.setEnabled(true);

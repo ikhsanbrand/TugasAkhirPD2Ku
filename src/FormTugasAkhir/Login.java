@@ -7,7 +7,7 @@ package FormTugasAkhir;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import koneksi.koneksi;
+import Koneksi.koneksi;
 
 /**
  *

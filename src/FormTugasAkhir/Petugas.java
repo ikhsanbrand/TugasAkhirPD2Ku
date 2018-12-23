@@ -5,7 +5,9 @@
  */
 package FormTugasAkhir;
 
-import static FormTugasAkhir.Tri.t;
+//import static FormTugasAkhir.Tri.t;
+import java.io.File;
+import Koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,13 +16,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import koneksi.koneksi;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -38,15 +48,19 @@ public class Petugas extends javax.swing.JFrame {
         this.radioL.setActionCommand("Laki - Laki");
         this.radioP.setActionCommand("Perempuan");
     }
-
+    public static Tree t;
     String kel;
     String Tanggal;
     static ArrayList<String> arlist22 = new ArrayList<>();
-    private Connection conn = new koneksi().connect();
+    Connection conn = new koneksi().connect();
+//    koneksi conn2 = new koneksi();
     private DefaultTableModel tabmode;
     private static final String[] BUTTON_TEXT = {"Laki - Laki", "Perempuan"};
     private ButtonGroup JenKel = new ButtonGroup();
     private String tgl;
+    JasperReport jasperReport;
+    JasperDesign jasperDesign;
+    JasperPrint jasperPrint;
 
     protected void aktif() {
         txtNama.setEnabled(true);
@@ -69,13 +83,13 @@ public class Petugas extends javax.swing.JFrame {
         try {
             String sql = "SELECT MAX(RIGHT(ID_Pet,3)) AS NO FROM Petugas";
             PreparedStatement stat = conn.prepareStatement(sql);
-            ResultSet rsjual = stat.executeQuery(sql);
-            while (rsjual.next()) {
-                if (rsjual.first() == false) {
+            ResultSet rsid = stat.executeQuery(sql);
+            while (rsid.next()) {
+                if (rsid.first() == false) {
                     Txt_Id.setText("PET-001");
                 } else {
-                    rsjual.last();
-                    int auto_id = rsjual.getInt(1) + 1;
+                    rsid.last();
+                    int auto_id = rsid.getInt(1) + 1;
                     String no = String.valueOf(auto_id);
                     int pet = no.length();
                     //MENGATUR jumlah 0
@@ -86,7 +100,7 @@ public class Petugas extends javax.swing.JFrame {
                     Txt_Id.setEnabled(false);
                 }
             }
-            rsjual.close();
+            rsid.close();
             stat.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR: \n" + e.toString(), "Kesalahan", JOptionPane.WARNING_MESSAGE);
@@ -174,6 +188,7 @@ public class Petugas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtNama = new javax.swing.JTextField();
         JD_Tgl = new com.toedter.calendar.JDateChooser();
+        Print = new javax.swing.JButton();
 
         btnUpdate1.setText("Update");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -295,6 +310,13 @@ public class Petugas extends javax.swing.JFrame {
             }
         });
 
+        Print.setText("Print");
+        Print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -344,6 +366,8 @@ public class Petugas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Balek)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Print)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +412,8 @@ public class Petugas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(Balek))
+                    .addComponent(Balek)
+                    .addComponent(Print))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -567,7 +592,7 @@ public class Petugas extends javax.swing.JFrame {
         CbPetugas.setSelectedItem(e);
 
 //        if (evt.getClickCount() == 1) {
-            JD_Tgl.setDate(getTanggalFromTable(TblPetugas, 3));
+        JD_Tgl.setDate(getTanggalFromTable(TblPetugas, 3));
 //        }
 
         String jenisKelamin = TblPetugas.getValueAt(bar, 2).toString();
@@ -579,6 +604,20 @@ public class Petugas extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_TblPetugasMouseClicked
+
+    private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
+//        try {
+//            HashMap parameters = new HashMap();
+//            File file = new File("src/dataasistentetap/DataAsisten.jasper");
+//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(file.getPath());
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn2.koneksi);
+//            JasperViewer.viewReport(jasperPrint, false);
+//            JasperViewer.setDefaultLookAndFeelDecorated(true);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+
+    }//GEN-LAST:event_PrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -630,6 +669,7 @@ public class Petugas extends javax.swing.JFrame {
     private javax.swing.JToggleButton Balek;
     private javax.swing.JComboBox<String> CbPetugas;
     private com.toedter.calendar.JDateChooser JD_Tgl;
+    private javax.swing.JButton Print;
     private javax.swing.JTable TblPetugas;
     private javax.swing.JTextField Txt_Id;
     private javax.swing.JButton btnDelete;
