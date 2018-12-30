@@ -5,7 +5,6 @@
  */
 package FormTugasAkhir;
 
-//import static FormTugasAkhir.Tri.t;
 import Koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,13 +42,11 @@ public class Transaksi extends javax.swing.JFrame {
     public Transaksi() {
         initComponents();
         Tanggal();
-//        setUnitKerja();
         datatable();
         autokode();
     }
 
     protected void aktif() {
-//        txt_id.setEnabled(true);
         txt_nama.setEnabled(true);
         invoicedate.setEnabled(true);
         txt_ket.setEnabled(true);
@@ -94,7 +91,6 @@ public class Transaksi extends javax.swing.JFrame {
     }
 
     protected void Tanggal() {
-
         Date date = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
@@ -102,22 +98,7 @@ public class Transaksi extends javax.swing.JFrame {
         output = ft.format(c.getTime());
         invoicedate.setText(output);
         invoicedate.setEnabled(false);
-
     }
-//    public static final String[] UNIT_KERJA = {
-//        "APOTEK", "KONSULTASI", "BEROBAT"
-//    };
-//
-//    public void setUnitKerja() {
-//        if (cbTransaksi.getItemCount() > 1) {
-//            for (int i = 1; i < cbTransaksi.getItemCount(); i++) {
-//                cbTransaksi.removeItemAt(i);
-//            }
-//        }
-//        for (int i = 0; i < UNIT_KERJA.length; i++) {
-//            cbTransaksi.addItem(UNIT_KERJA[i]);
-//        }
-//    }
 
     protected void datatable() {
         Object[] Baris = {"ID_Pembayaran", "Nama", "Tanggal Bayar", "Keterangan", "Nominal", "Transaksi"};
@@ -141,7 +122,6 @@ public class Transaksi extends javax.swing.JFrame {
                 tabmode.addRow(data);
             }
         } catch (Exception e) {
-
         }
     }
 
@@ -316,10 +296,8 @@ public class Transaksi extends javax.swing.JFrame {
                                 .addGap(456, 456, 456)
                                 .addComponent(BtnSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtnReset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addGap(0, 51, Short.MAX_VALUE)))
+                                .addComponent(BtnReset)))
+                        .addGap(0, 114, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -330,8 +308,10 @@ public class Transaksi extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Balek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
@@ -387,10 +367,8 @@ public class Transaksi extends javax.swing.JFrame {
                             .addComponent(jLabel6))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BtnSimpan)
-                        .addComponent(jButton1)
-                        .addComponent(BtnReset))
+                    .addComponent(BtnSimpan)
+                    .addComponent(BtnReset)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)))
@@ -402,7 +380,8 @@ public class Transaksi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(Balek))
+                    .addComponent(Balek)
+                    .addComponent(jButton1))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -530,7 +509,6 @@ public class Transaksi extends javax.swing.JFrame {
 
                 stat.setString(i + 1, arlist.get(i));
 
-//                stat.setString(i + 1, arlist.get(i));
             }
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "DATA BERHASIL DISIMPAN");

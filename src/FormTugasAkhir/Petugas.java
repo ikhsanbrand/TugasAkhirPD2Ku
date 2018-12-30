@@ -5,8 +5,7 @@
  */
 package FormTugasAkhir;
 
-//import static FormTugasAkhir.Tri.t;
-import java.io.File;
+
 import Koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +15,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
@@ -29,8 +27,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -49,6 +45,7 @@ public class Petugas extends javax.swing.JFrame {
         this.radioL.setActionCommand("Laki - Laki");
         this.radioP.setActionCommand("Perempuan");
     }
+    
     public static Tree t;
     String kel;
     String Tanggal;
@@ -76,7 +73,6 @@ public class Petugas extends javax.swing.JFrame {
         JD_Tgl.setCalendar(null);
         radioL.setSelected(false);
         radioP.setSelected(false);
-
     }
 
     private void autokode() {
@@ -106,20 +102,6 @@ public class Petugas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ERROR: \n" + e.toString(), "Kesalahan", JOptionPane.WARNING_MESSAGE);
         }
     }
-    //    public static final String[] UNIT_KERJA = {
-    //        "KETUA", "SEKRETARIS", "DOKTER", "APOTEKER"
-    //    };
-    //
-    //    public void setUnitKerja() {
-    //        if (CbPetugas.getItemCount() > 1) {
-    //            for (int i = 1; i < CbPetugas.getItemCount(); i++) {
-    //                CbPetugas.removeItemAt(i);
-    //            }
-    //        }
-    //        for (int i = 0; i < UNIT_KERJA.length; i++) {
-    //            CbPetugas.addItem(UNIT_KERJA[i]);
-    //        }
-    //    }
 
     protected void datatable() {
         Object[] Baris = {"ID", "Nama", "Jenis Kelamin", "Tanggal Lahir", "Jabatan"};
@@ -578,22 +560,13 @@ public class Petugas extends javax.swing.JFrame {
         int bar = TblPetugas.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
-//        String c = tabmode.getValueAt(bar, 2).toString();
-//        String d = tabmode.getValueAt(bar, 3).toString();
+
         String e = tabmode.getValueAt(bar, 4).toString();
         Txt_Id.setText(a);
         txtNama.setText(b);
-//        if (c.equals("Laki - Laki")) {
-//            this.radioL.setSelected(true);
-//        } else if (c.equals("Perempuan")) {
-//            this.radioP.setSelected(true);
-//        }
-//        JD_Tgl.setToolTipText(d);
         CbPetugas.setSelectedItem(e);
-
-//        if (evt.getClickCount() == 1) {
         JD_Tgl.setDate(getTanggalFromTable(TblPetugas, 3));
-//        }
+
 
         String jenisKelamin = TblPetugas.getValueAt(bar, 2).toString();
 
@@ -606,16 +579,6 @@ public class Petugas extends javax.swing.JFrame {
     }//GEN-LAST:event_TblPetugasMouseClicked
 
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
-//        try {
-//            HashMap parameters = new HashMap();
-//            File file = new File("src/dataasistentetap/DataAsisten.jasper");
-//            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(file.getPath());
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn2.koneksi);
-//            JasperViewer.viewReport(jasperPrint, false);
-//            JasperViewer.setDefaultLookAndFeelDecorated(true);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
 
         String reportSource = null;
         String reportDest = null;
