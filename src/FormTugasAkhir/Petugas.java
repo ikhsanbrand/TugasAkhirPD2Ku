@@ -6,7 +6,7 @@
 package FormTugasAkhir;
 
 
-import Koneksi.koneksi;
+import koneksi.koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
