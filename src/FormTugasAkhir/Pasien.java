@@ -17,6 +17,13 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ButtonGroup;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -31,6 +38,9 @@ public class Pasien extends javax.swing.JFrame {
     private ButtonGroup JenKel = new ButtonGroup();
     static ArrayList<String> arlist = new ArrayList<>();
     static String output;
+    JasperDesign jasperDesign;
+    JasperReport JasRep;
+    JasperPrint JasPri;
 
     public Pasien() {
         initComponents();
@@ -177,6 +187,7 @@ public class Pasien extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtumur = new javax.swing.JTextField();
         invoicedate = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -297,6 +308,13 @@ public class Pasien extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -348,7 +366,9 @@ public class Pasien extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BtnSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BtnReset)))))
+                                .addComponent(BtnReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -383,7 +403,8 @@ public class Pasien extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnSimpan)
-                            .addComponent(BtnReset)))
+                            .addComponent(BtnReset)
+                            .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -554,6 +575,23 @@ public class Pasien extends javax.swing.JFrame {
         kosong();       // TODO add your handling code here:
     }//GEN-LAST:event_BtnResetActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String reportSource = null;
+        String reportDest = null;
+        try {
+            reportSource = System.getProperty("user.dir") + "/Laporan/Pasien.jrxml";
+            reportDest = System.getProperty("user.dir") + "/Laporan/Pasien.jasper";
+
+            JasRep = JasperCompileManager.compileReport(reportSource);
+            JasPri = JasperFillManager.fillReport(JasRep, null, conn);
+            JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
+            JasperViewer.viewReport(JasPri, false);
+
+        } catch (Exception e) {
+            System.out.println(e);;
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -599,7 +637,7 @@ public class Pasien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pasien().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
@@ -612,6 +650,7 @@ public class Pasien extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JTextField invoicedate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

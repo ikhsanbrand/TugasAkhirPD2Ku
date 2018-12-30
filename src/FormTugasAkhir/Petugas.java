@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -53,14 +54,13 @@ public class Petugas extends javax.swing.JFrame {
     String Tanggal;
     static ArrayList<String> arlist22 = new ArrayList<>();
     Connection conn = new koneksi().connect();
-//    koneksi conn2 = new koneksi();
     private DefaultTableModel tabmode;
     private static final String[] BUTTON_TEXT = {"Laki - Laki", "Perempuan"};
     private ButtonGroup JenKel = new ButtonGroup();
     private String tgl;
-    JasperReport jasperReport;
     JasperDesign jasperDesign;
-    JasperPrint jasperPrint;
+    JasperReport JasRep;
+    JasperPrint JasPri;
 
     protected void aktif() {
         txtNama.setEnabled(true);
@@ -617,6 +617,21 @@ public class Petugas extends javax.swing.JFrame {
 //            System.out.println(e.getMessage());
 //        }
 
+        String reportSource = null;
+        String reportDest = null;
+        try {
+            reportSource = System.getProperty("user.dir") + "/Laporan/Petugas.jrxml";
+            reportDest = System.getProperty("user.dir") + "/Laporan/Petugas.jasper";
+
+            JasRep = JasperCompileManager.compileReport(reportSource);
+            JasPri = JasperFillManager.fillReport(JasRep, null, conn);
+            JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
+            JasperViewer.viewReport(JasPri, false);
+
+        } catch (Exception e) {
+            System.out.println(e);;
+        }
+
     }//GEN-LAST:event_PrintActionPerformed
 
     /**
@@ -660,7 +675,7 @@ public class Petugas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Petugas().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }

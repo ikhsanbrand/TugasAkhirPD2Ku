@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    a {text-decoration: none}
+  </style>
+</head>
+<body text="#000000" link="#000000" alink="#000000" vlink="#000000">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td width="50%">&nbsp;</td><td align="center">
+
+<a name="JR_PAGE_ANCHOR_0_1"></a>
+<table class="jrPage" cellpadding="0" cellspacing="0" border="0" style="empty-cells: show; width: 595px; border-collapse: collapse; background-color: white;">
+<tr valign="top" style="height:0">
+<td style="width:20px"></td>
+<td style="width:111px"></td>
+<td style="width:86px"></td>
+<td style="width:25px"></td>
+<td style="width:41px"></td>
+<td style="width:70px"></td>
+<td style="width:100px"></td>
+<td style="width:11px"></td>
+<td style="width:69px"></td>
+<td style="width:40px"></td>
+<td style="width:2px"></td>
+<td style="width:20px"></td>
+</tr>
+<tr valign="top" style="height:33px">
+<td colspan="12">
+</td>
+</tr>
+<tr valign="top" style="height:33px">
+<td>
+</td>
+<td colspan="4" style="text-indent: 0px;  vertical-align: middle;text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 26px; line-height: 1.1499023; font-weight: bold;">DAFTAR PETUGAS</span></td>
+<td colspan="7">
+</td>
+</tr>
+<tr valign="top" style="height:43px">
+<td colspan="12">
+</td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">ID Petugas</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">Nama</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">Jenis Kelamin</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">Tanggal Lahir</span></td>
+<td colspan="3" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 12px; line-height: 1.1499023; font-weight: bold;">Jabatan</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td colspan="12">
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="10" style="border-top: 1px solid #999999; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">PET-001</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Ikhsan</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Perempuan</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">12/11/18 12:00 AM</span></td>
+<td colspan="3" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Sekretaris</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="10" style="border-top: 1px solid #999999; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">PET-002</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">stef</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Laki-Laki</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">12/14/18 12:00 AM</span></td>
+<td colspan="3" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Bendahara</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="10" style="border-top: 1px solid #999999; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:15px">
+<td>
+</td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">PET-003</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">tester</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Laki-Laki</span></td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">12/6/18 12:00 AM</span></td>
+<td colspan="3" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #000000; font-size: 12px; line-height: 1.1499023;">Bendahara</span></td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="10" style="border-top: 1px solid #999999; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:586px">
+<td colspan="12">
+</td>
+</tr>
+<tr valign="top" style="height:1px">
+<td>
+</td>
+<td colspan="10" style="border-top: 1px solid #999999; ">
+</td>
+<td>
+</td>
+</tr>
+<tr valign="top" style="height:41px">
+<td colspan="12">
+</td>
+</tr>
+<tr valign="top" style="height:20px">
+<td>
+</td>
+<td colspan="2" style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 10px; line-height: 1.1499023;">Sunday 30 December 2018</span></td>
+<td colspan="4">
+</td>
+<td colspan="2" style="text-indent: 0px; text-align: right;">
+<span style="font-family: Arial; color: #666666; font-size: 10px; line-height: 1.1499023;">Page 1 of</span></td>
+<td style="text-indent: 0px; text-align: left;">
+<span style="font-family: Arial; color: #666666; font-size: 10px; line-height: 1.1499023;">&nbsp;1</span></td>
+<td colspan="2">
+</td>
+</tr>
+<tr valign="top" style="height:20px">
+<td colspan="12">
+</td>
+</tr>
+</table>
+
+<![if IE]>
+<script>
+var links = document.querySelectorAll('link.jrWebFont');
+setTimeout(function(){ if (links) { for (var i = 0; i < links.length; i++) { links.item(i).href = links.item(i).href; } } }, 0);
+</script>
+<![endif]>
+</td><td width="50%">&nbsp;</td></tr>
+</table>
+</body>
+</html>

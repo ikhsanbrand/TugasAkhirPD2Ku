@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Transaksi" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="1809e265-0cdc-40cd-8ab9-384f907f33c2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="233"/>
+	<property name="ireport.y" value="17"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     transaksi.`ID_Pem` AS transaksi_ID_Pem,
+     transaksi.`Nama` AS transaksi_Nama,
+     transaksi.`Tanggal_Pembayaran` AS transaksi_Tanggal_Pembayaran,
+     transaksi.`Keterangan` AS transaksi_Keterangan,
+     transaksi.`Nominal` AS transaksi_Nominal,
+     transaksi.`Transaksi` AS transaksi_Transaksi
+FROM
+     `transaksi` transaksi]]>
+	</queryString>
+	<field name="transaksi_ID_Pem" class="java.lang.String"/>
+	<field name="transaksi_Nama" class="java.lang.String"/>
+	<field name="transaksi_Tanggal_Pembayaran" class="java.sql.Date"/>
+	<field name="transaksi_Keterangan" class="java.lang.String"/>
+	<field name="transaksi_Nominal" class="java.lang.Integer"/>
+	<field name="transaksi_Transaksi" class="java.lang.String"/>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="-21" y="0" width="802" height="67" uuid="207c740e-3483-44d4-b279-e88b03cda100"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[TRANSAKSI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="9" y="4" width="772" height="20" backcolor="#666666" uuid="b1fb0de2-3afb-4ba0-982f-3892700c201a"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="117" height="15" uuid="ac229035-9163-4e1c-af0e-c7c213b867f7"/>
+					<text><![CDATA[ID Pembelian]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="117" y="0" width="117" height="15" uuid="d9097ded-76c2-4af8-8336-23a7a60b465d"/>
+					<text><![CDATA[Nama]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="234" y="0" width="117" height="15" uuid="0f108c8f-809b-46f7-a864-c277c68686d0"/>
+					<text><![CDATA[Tanggal Transaksi]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="351" y="0" width="117" height="15" uuid="2001aa4d-b23a-4bdf-8b0b-3d5b0b49dfb2"/>
+					<text><![CDATA[Keterangan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="468" y="0" width="117" height="15" uuid="9e2b034a-f960-40d9-96f8-410379c6cd18"/>
+					<text><![CDATA[Nominal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="585" y="0" width="117" height="15" uuid="31a2ded1-2205-4cef-925c-d5afe42debce"/>
+					<text><![CDATA[Jenis Transaksi]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="9" y="0" width="705" height="15" uuid="8a89d94a-8514-498c-b791-365bc7282ed9"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="117" height="15" uuid="ff94d76f-0059-4d0e-9b1d-9b2be42243e5"/>
+					<textFieldExpression><![CDATA[$F{transaksi_ID_Pem}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="117" y="0" width="117" height="15" uuid="1cc3e2d3-83b9-4380-a852-00b07745faf1"/>
+					<textFieldExpression><![CDATA[$F{transaksi_Nama}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="234" y="0" width="117" height="15" uuid="837ee8b1-3c02-4b89-bead-6d94823d4e88"/>
+					<textFieldExpression><![CDATA[$F{transaksi_Tanggal_Pembayaran}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="351" y="0" width="117" height="15" uuid="8578bdc7-ceb8-4099-899b-f82ce3918992"/>
+					<textFieldExpression><![CDATA[$F{transaksi_Keterangan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="468" y="0" width="117" height="15" uuid="0ebb3be4-92c5-487e-98c2-de561fdbc2aa"/>
+					<textFieldExpression><![CDATA[$F{transaksi_Nominal}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="585" y="0" width="117" height="15" uuid="a2886840-7c83-4ad4-9cd3-579abb9a3ef8"/>
+					<textFieldExpression><![CDATA[$F{transaksi_Transaksi}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="9" y="15" width="705" height="1" uuid="410bea5b-2d71-4b89-9058-a90b48d6c87a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="19" width="267" height="20" uuid="a3f8a941-e8cc-461e-b4e8-7c8b73e7c358"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="668" y="19" width="131" height="20" forecolor="#000000" uuid="c33a5a91-495a-4350-9dbc-b4395a4af4b0"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
