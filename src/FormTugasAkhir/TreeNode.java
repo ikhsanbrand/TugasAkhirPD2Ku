@@ -42,7 +42,6 @@ public class TreeNode {
     public void add_child(TreeNode new_child, double distance) {
         new_child.set_parent(this);
         new_child.distance = distance;
-
     }
 
     /* Simply remove child from this node's children */
