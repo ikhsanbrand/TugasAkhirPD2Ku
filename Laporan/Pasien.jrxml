@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pasien" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f11df80-045e-4230-b527-2a495e8fbb59">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pasien" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dca266bc-b1c8-46bf-ac49-da4524d7fcb6">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
-	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      pasien.`ID_Reg` AS pasien_ID_Reg,
@@ -32,11 +38,13 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="70" splitType="Stretch">
+		<band height="136" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="c3f3f8c1-7e50-45a4-bb01-b0aa52a20e21"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Daftar Pasien]]></text>
+				<reportElement style="Title" x="270" y="0" width="263" height="62" uuid="f50d6490-b7f1-47c7-8183-bdb10aebb65f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[PASIEN]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -44,93 +52,90 @@ FROM
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="37" splitType="Stretch">
+		<band height="16" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="10b3f1a5-64ed-4cc7-a818-74ee0b981c1d"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="01ea2402-3d8c-4b26-932e-12fdb1c6b4d5"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="19" width="57" height="15" uuid="00744a94-60dd-4812-9bbd-122eb498196e"/>
+				<reportElement style="Column header" x="0" y="0" width="60" height="15" forecolor="#736343" uuid="9037de7b-8872-4519-89c1-8b2b7f701242"/>
 				<text><![CDATA[ID Pasien]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="57" y="19" width="81" height="15" uuid="4847c3b5-9577-435d-91b6-f66909b53153"/>
+				<reportElement style="Column header" x="60" y="0" width="123" height="15" forecolor="#736343" uuid="0cdffb03-4acc-4ea3-8b71-f30224144e37"/>
 				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="138" y="19" width="69" height="15" uuid="0a2c3281-e77e-4af5-9124-6e0da375ce66"/>
+				<reportElement style="Column header" x="183" y="0" width="117" height="15" forecolor="#736343" uuid="c3d14049-04a1-4e47-918c-83e812888a81"/>
 				<text><![CDATA[Alamat]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="207" y="19" width="85" height="15" uuid="0860449a-ff08-40c3-9c10-089d2d8c7f9c"/>
+				<reportElement style="Column header" x="300" y="0" width="100" height="15" forecolor="#736343" uuid="843b9522-852e-4fd2-b9b2-3f2b8f88c0c5"/>
 				<text><![CDATA[Jenis Kelamin]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="292" y="19" width="33" height="15" uuid="d7760029-d4ba-4108-85d3-e2652ba1e543"/>
+				<reportElement style="Column header" x="400" y="0" width="46" height="15" forecolor="#736343" uuid="d1ad99d6-d4ff-4a79-aa7d-d61809dbe170"/>
 				<text><![CDATA[Umur]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="325" y="19" width="95" height="15" uuid="6b3fd1ba-afe1-46e4-8873-7a19bf5b94ad"/>
+				<reportElement style="Column header" x="447" y="0" width="99" height="15" forecolor="#736343" uuid="98d509ba-f96a-41b3-b1ef-b6541bef3211"/>
 				<text><![CDATA[Tanggal Periksa]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="420" y="19" width="66" height="15" uuid="a36b5b2c-5d8e-43b8-80a6-1660dd319d6b"/>
+				<reportElement style="Column header" x="546" y="0" width="135" height="15" forecolor="#736343" uuid="cf9d73c2-7c1a-4028-91eb-0f704d7a7252"/>
 				<text><![CDATA[Keluhan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="486" y="19" width="69" height="15" uuid="9a77dfee-0dfb-4183-87b2-b3de3c22ec88"/>
+				<reportElement style="Column header" x="682" y="0" width="118" height="15" forecolor="#736343" uuid="f216f457-7b9d-4b79-ae50-a8b88bce7bb6"/>
 				<text><![CDATA[Tindakan]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="16" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="478d616e-b597-463b-930b-0642f322796b"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-			<textField>
-				<reportElement style="Detail" x="0" y="0" width="57" height="15" uuid="d2350114-918b-434e-82f6-ba3dd73e37bf"/>
-				<textFieldExpression><![CDATA[$F{pasien_ID_Reg}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="57" y="0" width="81" height="15" uuid="188a9d12-4e74-4aa0-90dc-b202f6dc8c4f"/>
-				<textFieldExpression><![CDATA[$F{pasien_Nama}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="138" y="0" width="69" height="15" uuid="cb6b7fd1-3be0-43ce-8653-2af53bb34f65"/>
-				<textFieldExpression><![CDATA[$F{pasien_Alamat}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="207" y="0" width="85" height="15" uuid="d1d75050-0e13-468f-8ba2-0c952e9ff978"/>
-				<textFieldExpression><![CDATA[$F{pasien_Jenis_Kelamin}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="292" y="0" width="33" height="15" uuid="4fe08568-bc53-44bb-b81b-0990d87d2407"/>
-				<textFieldExpression><![CDATA[$F{pasien_Umur}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="325" y="1" width="95" height="15" uuid="b1bccef0-198c-433b-bdf6-94787293645c"/>
-				<textFieldExpression><![CDATA[$F{pasien_Tanggal_Periksa}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="420" y="0" width="66" height="15" uuid="474ce023-4d02-48a3-b124-d23468b86182"/>
-				<textFieldExpression><![CDATA[$F{pasien_Keluhan}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement style="Detail" x="486" y="0" width="69" height="15" uuid="95f95686-1454-4281-a1cb-b78312f0042e"/>
-				<textFieldExpression><![CDATA[$F{pasien_Tindakan}]]></textFieldExpression>
-			</textField>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="80933c9c-fde2-440c-9ab9-33da675fe76f"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="60" height="15" uuid="868af039-e068-4776-bea7-5ac7129780f5"/>
+					<textFieldExpression><![CDATA[$F{pasien_ID_Reg}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="60" y="0" width="123" height="15" uuid="92018044-60b1-4070-a0fd-78892ee9cac1"/>
+					<textFieldExpression><![CDATA[$F{pasien_Nama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="183" y="0" width="117" height="15" uuid="a141beba-b158-47ea-a3d6-db92b1931647"/>
+					<textFieldExpression><![CDATA[$F{pasien_Alamat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="c5e748f3-d431-4f2c-a79b-b1f7ed77ddc0"/>
+					<textFieldExpression><![CDATA[$F{pasien_Jenis_Kelamin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="46" height="15" uuid="376a910a-f17c-45f8-8e2a-5f07d9dd14c1"/>
+					<textFieldExpression><![CDATA[$F{pasien_Umur}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="446" y="0" width="100" height="15" uuid="9b7a095f-577c-424a-b049-f9a07300b740"/>
+					<textFieldExpression><![CDATA[$F{pasien_Tanggal_Periksa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="546" y="0" width="136" height="15" uuid="efa39252-c80c-46f9-b5bf-ae4264a79bbf"/>
+					<textFieldExpression><![CDATA[$F{pasien_Keluhan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="682" y="0" width="118" height="15" uuid="8eb1715e-10ad-4a12-a348-0ce4fac928f1"/>
+					<textFieldExpression><![CDATA[$F{pasien_Tindakan}]]></textFieldExpression>
+				</textField>
+			</frame>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="6" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2cf3d353-df8e-443e-945b-2211b18b0f59"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="5b3cda81-849f-4bf2-bd1c-67e4966ae106"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -138,28 +143,31 @@ FROM
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="21eb868d-fcc9-49d7-ab8e-2656b1f3d4bb"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="bcbc5ede-1e49-4b0d-8c69-cd306c0f5175"/>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="0d927e9a-24a8-4ec9-8688-54018dc21b58"/>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="24a567e8-b080-4c7d-86ad-49eded9314a4"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="ea7b5a98-319a-47af-985a-abc4b98f2991"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="fe12dba1-1f1f-495c-a299-df7a70fa584a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="be2b884d-93fd-4d3d-862f-ce75b9dafa58"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
 		</band>
 	</pageFooter>
 	<summary>

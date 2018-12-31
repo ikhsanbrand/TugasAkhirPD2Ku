@@ -54,7 +54,6 @@ public class Pasien extends javax.swing.JFrame {
     }
 
     public void Tanggal() {
-
         Date date = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
@@ -62,7 +61,6 @@ public class Pasien extends javax.swing.JFrame {
         output = ft.format(c.getTime());
         invoicedate.setText(output);
         invoicedate.setEnabled(false);
-
     }
 
     private void autokode() {
@@ -124,7 +122,6 @@ public class Pasien extends javax.swing.JFrame {
         try {
             java.sql.Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
-
             while (hasil.next()) {
                 String id_reg = hasil.getString("ID_Reg");
                 String Nama = hasil.getString("Nama");
@@ -134,12 +131,10 @@ public class Pasien extends javax.swing.JFrame {
                 String Tanggal_Periksa = hasil.getString("Tanggal_Periksa");
                 String Keluhan = hasil.getString("Keluhan");
                 String Tindakan = hasil.getString("Tindakan");
-
                 String[] data = {id_reg, Nama, Alamat, Jenis_Kelamin, Umur, Tanggal_Periksa, Keluhan, Tindakan};
                 tabmode.addRow(data);
             }
         } catch (Exception e) {
-
         }
     }
 
@@ -545,7 +540,6 @@ public class Pasien extends javax.swing.JFrame {
         String f = tabmode.getValueAt(bar, 5).toString();
         String g = tabmode.getValueAt(bar, 6).toString();
         String h = tabmode.getValueAt(bar, 7).toString();
-
         txtid.setText(a);
         txtNama.setText(b);
         txtalamat.setText(c);
@@ -553,9 +547,7 @@ public class Pasien extends javax.swing.JFrame {
         invoicedate.setText(f);
         txtkeluhan.setText(g);
         txttindakan.setText(h);
-
         String jenisKelamin = TblPasien.getValueAt(bar, 3).toString();
-
         if (jenisKelamin.equals("Laki-Laki")) {
             radioL.setSelected(true);
         } else {
@@ -574,12 +566,10 @@ public class Pasien extends javax.swing.JFrame {
         try {
             reportSource = System.getProperty("user.dir") + "/Laporan/Pasien.jrxml";
             reportDest = System.getProperty("user.dir") + "/Laporan/Pasien.jasper";
-
             JasRep = JasperCompileManager.compileReport(reportSource);
             JasPri = JasperFillManager.fillReport(JasRep, null, conn);
             JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
             JasperViewer.viewReport(JasPri, false);
-
         } catch (Exception e) {
             System.out.println(e);;
         }        // TODO add your handling code here:

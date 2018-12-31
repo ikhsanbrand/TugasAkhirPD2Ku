@@ -105,11 +105,9 @@ public class Transaksi extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         TblTransaksi.setModel(tabmode);
         String sql = "select * from transaksi";
-
         try {
             java.sql.Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
-
             while (hasil.next()) {
                 String id_pem = hasil.getString("ID_Pem");
                 String Nama = hasil.getString("Nama");
@@ -393,7 +391,6 @@ public class Transaksi extends javax.swing.JFrame {
             String sql = "update transaksi set Nama=?, Tanggal_Pembayaran=?, Keterangan=?, Nominal=?, Transaksi =? where ID_Pem = '" + txt_id.getText() + "'";
             arlist.clear();
             PreparedStatement stat = conn.prepareStatement(sql);
-
             t = new Tree(new TreeNode(""));
             t.root.add_child(new TreeNode("Apotek"), 0);
             t.root.add_child(new TreeNode("Konsutltasi"), 0);
@@ -416,13 +413,11 @@ public class Transaksi extends javax.swing.JFrame {
                     stat.setString(5, t.root.children.get(2).data);
                     break;
             }
-
             arlist.add(txt_nama.getText());
             arlist.add(invoicedate.getText());
             arlist.add(txt_ket.getText());
             arlist.add(Nominal.getText());
             for (int i = 0; i < arlist.size(); i++) {
-
                 stat.setString(i + 1, arlist.get(i));
             }
             stat.executeUpdate();
@@ -476,7 +471,6 @@ public class Transaksi extends javax.swing.JFrame {
         try {
             arlist.clear();
             PreparedStatement stat = conn.prepareStatement(sql);
-
             t = new Tree(new TreeNode(""));
             t.root.add_child(new TreeNode("Apotek"), 0);
             t.root.add_child(new TreeNode("Konsutltasi"), 0);
@@ -499,16 +493,13 @@ public class Transaksi extends javax.swing.JFrame {
                     stat.setString(6, t.root.children.get(2).data);
                     break;
             }
-
             arlist.add(txt_id.getText());
             arlist.add(txt_nama.getText());
             arlist.add(invoicedate.getText());
             arlist.add(txt_ket.getText());
             arlist.add(Nominal.getText());
             for (int i = 0; i < arlist.size(); i++) {
-
                 stat.setString(i + 1, arlist.get(i));
-
             }
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "DATA BERHASIL DISIMPAN");
@@ -530,7 +521,6 @@ public class Transaksi extends javax.swing.JFrame {
         String d = tabmode.getValueAt(bar, 3).toString();
         String e = tabmode.getValueAt(bar, 4).toString();
         String f = tabmode.getValueAt(bar, 5).toString();
-
         txt_id.setText(a);
         txt_nama.setText(b);
         invoicedate.setText(c);
@@ -550,12 +540,10 @@ public class Transaksi extends javax.swing.JFrame {
         try {
             reportSource = System.getProperty("user.dir") + "/Laporan/Transaksi.jrxml";
             reportDest = System.getProperty("user.dir") + "/Laporan/Transaksi.jasper";
-
             JasRep = JasperCompileManager.compileReport(reportSource);
             JasPri = JasperFillManager.fillReport(JasRep, null, conn);
             JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
             JasperViewer.viewReport(JasPri, false);
-
         } catch (Exception e) {
             System.out.println(e);
         }          // TODO add your handling code here:

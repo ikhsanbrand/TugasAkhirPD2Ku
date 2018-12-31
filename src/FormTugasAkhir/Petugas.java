@@ -37,7 +37,6 @@ public class Petugas extends javax.swing.JFrame {
 
     public Petugas() {
         initComponents();
-//        setUnitKerja();
         datatable();
         autokode();
         JenKel.add(radioL);
@@ -108,18 +107,15 @@ public class Petugas extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         TblPetugas.setModel(tabmode);
         String sql = "select * from petugas";
-
         try {
             java.sql.Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
-
             while (hasil.next()) {
                 String id_pet = hasil.getString("ID_Pet");
                 String Nama = hasil.getString("Nama");
                 String Jenis_Kelamin = hasil.getString("Jenis_Kelamin");
                 String Tanggal_Lahir = hasil.getString("Tanggal_Lahir");
                 String Jabatan = hasil.getString("Jabatan");
-
                 String[] data = {id_pet, Nama, Jenis_Kelamin, Tanggal_Lahir, Jabatan};
                 tabmode.addRow(data);
             }
@@ -403,7 +399,6 @@ public class Petugas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
         String sql = "insert into petugas values (?,?,?,?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
@@ -556,20 +551,15 @@ public class Petugas extends javax.swing.JFrame {
     }//GEN-LAST:event_radioPActionPerformed
 
     private void TblPetugasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblPetugasMouseClicked
-
         int bar = TblPetugas.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
-
         String e = tabmode.getValueAt(bar, 4).toString();
         Txt_Id.setText(a);
         txtNama.setText(b);
         CbPetugas.setSelectedItem(e);
         JD_Tgl.setDate(getTanggalFromTable(TblPetugas, 3));
-
-
         String jenisKelamin = TblPetugas.getValueAt(bar, 2).toString();
-
         if (jenisKelamin.equals("Laki-Laki")) {
             radioL.setSelected(true);
         } else {
@@ -579,22 +569,18 @@ public class Petugas extends javax.swing.JFrame {
     }//GEN-LAST:event_TblPetugasMouseClicked
 
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
-
         String reportSource = null;
         String reportDest = null;
         try {
             reportSource = System.getProperty("user.dir") + "/Laporan/Petugas.jrxml";
             reportDest = System.getProperty("user.dir") + "/Laporan/Petugas.jasper";
-
             JasRep = JasperCompileManager.compileReport(reportSource);
             JasPri = JasperFillManager.fillReport(JasRep, null, conn);
             JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
             JasperViewer.viewReport(JasPri, false);
-
         } catch (Exception e) {
             System.out.println(e);;
         }
-
     }//GEN-LAST:event_PrintActionPerformed
 
     /**
