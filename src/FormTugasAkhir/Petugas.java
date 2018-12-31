@@ -432,7 +432,6 @@ public class Petugas extends javax.swing.JFrame {
                     stat.setString(5, t.root.children.get(4).data);
                     break;
             }
-
             arlist22.clear();
             arlist22.add(Txt_Id.getText());
             arlist22.add(txtNama.getText());
@@ -522,7 +521,6 @@ public class Petugas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
         kosong();
     }//GEN-LAST:event_btnResetActionPerformed
 
