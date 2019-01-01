@@ -147,7 +147,6 @@ public class Transaksi extends javax.swing.JFrame {
         txt_nama = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        Balek = new javax.swing.JToggleButton();
         BtnSimpan = new javax.swing.JButton();
         BtnReset = new javax.swing.JButton();
         invoicedate = new javax.swing.JTextField();
@@ -161,6 +160,7 @@ public class Transaksi extends javax.swing.JFrame {
         cbTransaksi = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         btnUpdate1.setText("Update");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -224,13 +224,6 @@ public class Transaksi extends javax.swing.JFrame {
 
         jLabel7.setText("Tanggal Pembayaran");
 
-        Balek.setText("Kembali");
-        Balek.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BalekActionPerformed(evt);
-            }
-        });
-
         BtnSimpan.setText("Simpan");
         BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +271,13 @@ public class Transaksi extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Kembali");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -304,7 +304,7 @@ public class Transaksi extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Balek)
+                        .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -374,13 +374,17 @@ public class Transaksi extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel3)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete)
-                    .addComponent(Balek)
-                    .addComponent(jButton1))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -452,11 +456,6 @@ public class Transaksi extends javax.swing.JFrame {
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdate1ActionPerformed
-
-    private void BalekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalekActionPerformed
-        this.setVisible(false);
-        new MenuPil().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_BalekActionPerformed
 
     private void invoicedateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicedateActionPerformed
 
@@ -549,6 +548,11 @@ public class Transaksi extends javax.swing.JFrame {
         }          // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new MenuPil().setVisible(true);             // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -608,7 +612,6 @@ public class Transaksi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton Balek;
     private javax.swing.JButton BtnReset;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JTextField Nominal;
@@ -619,6 +622,7 @@ public class Transaksi extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTransaksi;
     private javax.swing.JTextField invoicedate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

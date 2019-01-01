@@ -161,12 +161,12 @@ public class Petugas extends javax.swing.JFrame {
         radioL = new javax.swing.JRadioButton();
         radioP = new javax.swing.JRadioButton();
         btnReset = new javax.swing.JButton();
-        Balek = new javax.swing.JToggleButton();
         CbPetugas = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtNama = new javax.swing.JTextField();
         JD_Tgl = new com.toedter.calendar.JDateChooser();
         Print = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         btnUpdate1.setText("Update");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -270,13 +270,6 @@ public class Petugas extends javax.swing.JFrame {
             }
         });
 
-        Balek.setText("Kembali");
-        Balek.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BalekActionPerformed(evt);
-            }
-        });
-
         CbPetugas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ketua", "Sekretaris", "Bendahara", "Apoteker", "Dokter" }));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -292,6 +285,13 @@ public class Petugas extends javax.swing.JFrame {
         Print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrintActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -342,7 +342,7 @@ public class Petugas extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Balek)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Print)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -390,9 +390,9 @@ public class Petugas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(Balek)
-                    .addComponent(Print))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(Print)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -528,11 +528,6 @@ public class Petugas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
-    private void BalekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalekActionPerformed
-        this.setVisible(false);
-        new MenuPil().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_BalekActionPerformed
-
     private void JD_TglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JD_TglPropertyChange
         if (JD_Tgl.getDate() != null) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -581,6 +576,11 @@ public class Petugas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PrintActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        new MenuPil().setVisible(true);             // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -628,7 +628,6 @@ public class Petugas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton Balek;
     private javax.swing.JComboBox<String> CbPetugas;
     private com.toedter.calendar.JDateChooser JD_Tgl;
     private javax.swing.JButton Print;
@@ -639,6 +638,7 @@ public class Petugas extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

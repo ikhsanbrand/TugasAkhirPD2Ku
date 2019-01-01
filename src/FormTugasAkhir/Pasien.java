@@ -165,7 +165,6 @@ public class Pasien extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         radioL = new javax.swing.JRadioButton();
         radioP = new javax.swing.JRadioButton();
-        Balek = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -182,6 +181,7 @@ public class Pasien extends javax.swing.JFrame {
         txtumur = new javax.swing.JTextField();
         invoicedate = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,13 +256,6 @@ public class Pasien extends javax.swing.JFrame {
             }
         });
 
-        Balek.setText("Kembali");
-        Balek.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BalekActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("ID Registrasi");
 
         jLabel8.setText("Keluhan");
@@ -306,6 +299,13 @@ public class Pasien extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Kembali");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -372,7 +372,7 @@ public class Pasien extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Balek)
+                        .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -433,8 +433,8 @@ public class Pasien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(Balek)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -484,11 +484,6 @@ public class Pasien extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void BalekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalekActionPerformed
-        this.setVisible(false);
-        new MenuPil().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_BalekActionPerformed
 
     private void invoicedateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoicedateActionPerformed
 
@@ -575,6 +570,11 @@ public class Pasien extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new MenuPil().setVisible(true);             // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -626,7 +626,6 @@ public class Pasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton Balek;
     private javax.swing.JButton BtnReset;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JTable TblPasien;
@@ -634,6 +633,7 @@ public class Pasien extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JTextField invoicedate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
