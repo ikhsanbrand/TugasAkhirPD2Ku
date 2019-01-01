@@ -190,7 +190,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Login Sukses");
                 new MenuPil().setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Username Atau Password, Silahkan Coba Lagi :)");
+                JOptionPane.showMessageDialog(null, "Yahh. Username Atau Password Salah, Silahkan Coba Lagi ya.. :)");
                 new Login().setVisible(true);
             }
         } catch (SQLException e) {
@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnLoginActionPerformed
 
     private void BtnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnLoginKeyPressed
-
+ 
     }//GEN-LAST:event_BtnLoginKeyPressed
 
     /**
