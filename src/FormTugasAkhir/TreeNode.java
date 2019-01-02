@@ -55,8 +55,7 @@ public class TreeNode {
      */
     
    public void print(String spaces, double distance) {
-        System.out.println(data +
-                " distance from Surabaya : " + (distance + this.distance));
+        System.out.println(data +" " + (distance + this.distance));
         for (i = 0; i < this.children.size(); i++) {
             this.children.get(i).print(" ", this.distance);
         } 

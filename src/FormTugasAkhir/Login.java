@@ -41,8 +41,8 @@ public class Login extends javax.swing.JFrame {
         Txt_Pw = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        LO = new javax.swing.JButton();
+        BtnDaftar = new javax.swing.JButton();
         BtnLogin = new javax.swing.JButton();
         Txt_User = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -60,17 +60,17 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password :");
 
-        jButton1.setText("Keluar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LO.setText("Keluar");
+        LO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LOActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Daftar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnDaftar.setText("Daftar");
+        BtnDaftar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnDaftarActionPerformed(evt);
             }
         });
 
@@ -120,10 +120,10 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(Txt_Pw)
                                     .addComponent(Txt_User, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(LO)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
+                                .addComponent(BtnDaftar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BtnLogin)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -145,8 +145,8 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(BtnDaftar)
+                    .addComponent(LO)
                     .addComponent(BtnLogin))
                 .addGap(48, 48, 48))
         );
@@ -154,13 +154,13 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOActionPerformed
         int selectedOption = JOptionPane.showConfirmDialog(null,
                 "Apakah anda akan menutup aplikasi?", "Tutup Aplikasi", JOptionPane.YES_NO_OPTION);
         if (selectedOption == JOptionPane.YES_OPTION) {
             System.exit(0);
         }         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LOActionPerformed
 
     private void Txt_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_UserActionPerformed
         // TODO add your handling code here:
@@ -170,10 +170,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_PwActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BtnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDaftarActionPerformed
         this.setVisible(false);
         new Daftar().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BtnDaftarActionPerformed
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
         this.setVisible(false);
@@ -238,11 +238,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnDaftar;
     private javax.swing.JButton BtnLogin;
+    private javax.swing.JButton LO;
     private javax.swing.JPasswordField Txt_Pw;
     private javax.swing.JTextField Txt_User;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -48,8 +48,8 @@ public class Daftar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Txt_User = new javax.swing.JTextField();
         Txt_Pw = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Balek = new javax.swing.JButton();
+        D = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         Txt_Pw2 = new javax.swing.JPasswordField();
 
@@ -77,17 +77,17 @@ public class Daftar extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("KEMBALI");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Balek.setText("KEMBALI");
+        Balek.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BalekActionPerformed(evt);
             }
         });
 
-        jButton2.setText("DAFTAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        D.setText("DAFTAR");
+        D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                DActionPerformed(evt);
             }
         });
 
@@ -108,9 +108,9 @@ public class Daftar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(Balek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(D)))
                 .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
@@ -142,8 +142,8 @@ public class Daftar extends javax.swing.JFrame {
                 .addComponent(Txt_Pw2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(Balek)
+                    .addComponent(D))
                 .addGap(32, 32, 32))
         );
 
@@ -154,7 +154,7 @@ public class Daftar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_PwActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
         String sql = "insert into user values (?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
@@ -178,7 +178,7 @@ public class Daftar extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "DAFTAR GAGAL, USERNAME SUDAH DIGUNAKAN");
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_DActionPerformed
 
     private void Txt_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_UserActionPerformed
         // TODO add your handling code here:
@@ -188,10 +188,10 @@ public class Daftar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_Pw2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BalekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalekActionPerformed
         this.setVisible(false);
         new Login().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BalekActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,11 +238,11 @@ public class Daftar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Balek;
+    private javax.swing.JButton D;
     private javax.swing.JPasswordField Txt_Pw;
     private javax.swing.JPasswordField Txt_Pw2;
     private javax.swing.JTextField Txt_User;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

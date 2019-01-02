@@ -165,8 +165,8 @@ public class Petugas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtNama = new javax.swing.JTextField();
         JD_Tgl = new com.toedter.calendar.JDateChooser();
-        Print = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtnPrint = new javax.swing.JButton();
+        Balek = new javax.swing.JButton();
 
         btnUpdate1.setText("Update");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -281,17 +281,17 @@ public class Petugas extends javax.swing.JFrame {
             }
         });
 
-        Print.setText("Print");
-        Print.addActionListener(new java.awt.event.ActionListener() {
+        BtnPrint.setText("Print");
+        BtnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrintActionPerformed(evt);
+                BtnPrintActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Kembali");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Balek.setText("Kembali");
+        Balek.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BalekActionPerformed(evt);
             }
         });
 
@@ -342,9 +342,9 @@ public class Petugas extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(Balek)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Print)
+                .addComponent(BtnPrint)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -390,8 +390,8 @@ public class Petugas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(Print)
-                    .addComponent(jButton1))
+                    .addComponent(BtnPrint)
+                    .addComponent(Balek))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -561,7 +561,7 @@ public class Petugas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TblPetugasMouseClicked
 
-    private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
+    private void BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrintActionPerformed
         String reportSource = null;
         String reportDest = null;
         try {
@@ -574,12 +574,12 @@ public class Petugas extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);;
         }
-    }//GEN-LAST:event_PrintActionPerformed
+    }//GEN-LAST:event_BtnPrintActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BalekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalekActionPerformed
         this.setVisible(false);
         new MenuPil().setVisible(true);             // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BalekActionPerformed
 
     /**
      * @param args the command line arguments
@@ -628,9 +628,10 @@ public class Petugas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Balek;
+    private javax.swing.JButton BtnPrint;
     private javax.swing.JComboBox<String> CbPetugas;
     private com.toedter.calendar.JDateChooser JD_Tgl;
-    private javax.swing.JButton Print;
     private javax.swing.JTable TblPetugas;
     private javax.swing.JTextField Txt_Id;
     private javax.swing.JButton btnDelete;
@@ -638,7 +639,6 @@ public class Petugas extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
