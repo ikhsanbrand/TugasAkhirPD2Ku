@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Transaksi" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="1809e265-0cdc-40cd-8ab9-384f907f33c2">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="216"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
@@ -81,7 +81,7 @@ FROM
 					<reportElement style="Detail" x="117" y="0" width="117" height="15" uuid="1cc3e2d3-83b9-4380-a852-00b07745faf1"/>
 					<textFieldExpression><![CDATA[$F{transaksi_Nama}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField pattern="yyyy/MM/dd" isBlankWhenNull="true">
 					<reportElement style="Detail" x="234" y="0" width="117" height="15" uuid="837ee8b1-3c02-4b89-bead-6d94823d4e88"/>
 					<textFieldExpression><![CDATA[$F{transaksi_Tanggal_Pembayaran}]]></textFieldExpression>
 				</textField>
@@ -89,7 +89,7 @@ FROM
 					<reportElement style="Detail" x="351" y="0" width="182" height="15" uuid="8578bdc7-ceb8-4099-899b-f82ce3918992"/>
 					<textFieldExpression><![CDATA[$F{transaksi_Keterangan}]]></textFieldExpression>
 				</textField>
-				<textField>
+				<textField pattern="#,##0">
 					<reportElement style="Detail" x="534" y="0" width="117" height="15" uuid="0ebb3be4-92c5-487e-98c2-de561fdbc2aa"/>
 					<textFieldExpression><![CDATA[$F{transaksi_Nominal}]]></textFieldExpression>
 				</textField>
@@ -111,13 +111,6 @@ FROM
 	</columnFooter>
 	<pageFooter>
 		<band height="39" splitType="Stretch">
-			<staticText>
-				<reportElement x="31" y="19" width="267" height="20" uuid="a3f8a941-e8cc-461e-b4e8-7c8b73e7c358"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Silhouette Title Report]]></text>
-			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement style="Column header" x="668" y="19" width="131" height="20" forecolor="#000000" uuid="c33a5a91-495a-4350-9dbc-b4395a4af4b0"/>
 				<textElement textAlignment="Right">

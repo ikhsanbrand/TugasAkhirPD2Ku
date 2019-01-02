@@ -87,7 +87,7 @@ FROM
 				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="9fac5668-6a8c-4698-9d6d-e2c5f1d70c8c"/>
 				<textFieldExpression><![CDATA[$F{petugas_Jenis_Kelamin}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="yyyy/MM/dd">
 				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="00225ab9-66fc-4874-849e-0681f5ac875e"/>
 				<textFieldExpression><![CDATA[$F{petugas_Tanggal_Lahir}]]></textFieldExpression>
 			</textField>
