@@ -40,11 +40,11 @@ FROM
 	<title>
 		<band height="136" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="270" y="0" width="263" height="62" uuid="f50d6490-b7f1-47c7-8183-bdb10aebb65f"/>
+				<reportElement style="Title" x="198" y="0" width="412" height="62" uuid="f50d6490-b7f1-47c7-8183-bdb10aebb65f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[PASIEN]]></text>
+				<text><![CDATA[PASIEN KLINIK]]></text>
 			</staticText>
 		</band>
 	</title>

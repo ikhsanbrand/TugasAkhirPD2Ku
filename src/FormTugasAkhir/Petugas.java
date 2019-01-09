@@ -572,7 +572,7 @@ public class Petugas extends javax.swing.JFrame {
             JasperExportManager.exportReportToHtmlFile(JasPri, reportDest);
             JasperViewer.viewReport(JasPri, false);
         } catch (Exception e) {
-            System.out.println(e);;
+            System.out.println(e);
         }
     }//GEN-LAST:event_BtnPrintActionPerformed
 
