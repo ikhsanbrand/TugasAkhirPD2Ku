@@ -158,11 +158,13 @@ public class Daftar extends javax.swing.JFrame {
         String sql = "insert into user values (?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, Txt_User.getText());
-            stat.setString(2, Txt_Pw.getText());
-            String mem = Txt_User.getText();
-            String pass = Txt_Pw.getText();
-            String pass2 = Txt_Pw2.getText();
+            String ser = Txt_User.getText().toUpperCase();
+            String pw = Txt_Pw.getText().toUpperCase();
+            stat.setString(1, ser);
+            stat.setString(2, pw);
+            String mem = Txt_User.getText().toUpperCase();
+            String pass = Txt_Pw.getText().toUpperCase();
+            String pass2 = Txt_Pw2.getText().toUpperCase();
             if (mem.equals("") || pass.equals("") || pass2.equals("")) {
                 JOptionPane.showMessageDialog(null, "USERNAME & PASSWORD TIDAK BOLEH KOSONG!!", "Peringatan", JOptionPane.WARNING_MESSAGE);
             } else if (pass == null ? pass2 == null : pass.equals(pass2)) {

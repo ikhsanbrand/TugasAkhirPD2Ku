@@ -180,8 +180,10 @@ public class Login extends javax.swing.JFrame {
         String sql = "select IdUser, Pw from user where iduser=? AND pw=?";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, Txt_User.getText());
-            stat.setString(2, Txt_Pw.getText());
+            String ser = Txt_User.getText().toUpperCase();
+            String pw = Txt_Pw.getText().toUpperCase();
+            stat.setString(1, ser);
+            stat.setString(2, pw);
             ResultSet result = stat.executeQuery();
             if (Txt_User.getText().equals("") || Txt_Pw.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "USERNAME & PASSWORD TIDAK BOLEH KOSONG!!", "Peringatan", JOptionPane.WARNING_MESSAGE);
