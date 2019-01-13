@@ -17,8 +17,8 @@ import koneksi.koneksi;
  */
 public class Daftar extends javax.swing.JFrame {
 
-        private Connection conn = new koneksi().connect();
-    
+    private Connection conn = new koneksi().connect();
+
     /**
      * Creates new form Daftar
      */
@@ -26,10 +26,10 @@ public class Daftar extends javax.swing.JFrame {
         initComponents();
     }
 
-
     protected void kosong() {
         Txt_User.setText("");
         Txt_Pw.setText("");
+        Txt_Pw2.setText("");
     }
 
     /**
@@ -167,6 +167,8 @@ public class Daftar extends javax.swing.JFrame {
             String pass2 = Txt_Pw2.getText().toUpperCase();
             if (mem.equals("") || pass.equals("") || pass2.equals("")) {
                 JOptionPane.showMessageDialog(null, "USERNAME & PASSWORD TIDAK BOLEH KOSONG!!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+                Txt_Pw.setText("");
+                Txt_Pw2.setText("");
             } else if (pass == null ? pass2 == null : pass.equals(pass2)) {
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "DAFTAR SUKSES");
@@ -177,6 +179,7 @@ public class Daftar extends javax.swing.JFrame {
                 Txt_Pw.setText("");
                 Txt_Pw2.setText("");
             }
+            kosong();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "DAFTAR GAGAL, USERNAME SUDAH DIGUNAKAN");
         }        // TODO add your handling code here:
